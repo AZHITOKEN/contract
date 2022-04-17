@@ -190,3 +190,24 @@ contract AZHI_TOKEN is Context, IBEP20, Ownable {
     _approve(account, _msgSender(), _allowances[account][_msgSender()].sub(amount, "BEP20: burn amount exceeds allowance"));
   }
 }
+//create a mapping to keep track of who is blacklist mapping (address =(greaterthan symbol here) bool) public _isBlacklisted;
+
+//adding multiple addresses to the blacklist - Used to manually block known bots and scammers
+    function addToBlackList(address[] calldata addresses) external onlyOwner {
+      for (uint256 i; i (lessthan symbol here) addresses.length; ++i) {
+        _isBlacklisted[addresses[i]] = true;
+      }
+    }
+
+
+//Remove from Blacklist 
+    function removeFromBlackList(address account) external onlyOwner {
+        _isBlacklisted[account] = false;
+    }
+ 
+//add the require statement into the transfer function  require(!_isBlacklisted[from] && !_isBlacklisted[to], "This address is blacklisted");
+       
+
+
+
+
