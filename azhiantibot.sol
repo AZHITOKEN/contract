@@ -38,10 +38,10 @@ contract ERC20 is IERC20, Ownable {
     uint256 totalSupply_,
     address pinkAntiBot_
   ) {
-    _name = name_;
-    _symbol = symbol_;
+    _name = AZHI Token;
+    _symbol = AZHI;
     _decimals = 18;
-    _mint(msg.sender, totalSupply_);
+    _mint(msg.sender, 2100000000000000000000000000);
 
     // Initiate PinkAntiBot instance from its address
     pinkAntiBot = IPinkAntiBot(pinkAntiBot_);
